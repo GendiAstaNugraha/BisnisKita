@@ -1,0 +1,22 @@
+.home{
+    margin: auto;
+    display: flex;
+    margin-top: 50px;
+}
+.text_home
+{
+    margin-left: 150px;
+}
+.text_1
+{
+    font-size: 200px;
+    color: #364f6b;
+    font-family: 'comic sans ms';
+}
+.paragraf_1
+{
+    font-size: 50px;
+    color: #364f6b;
+    font-family: 'comic sans ms';
+    line-height: 50px;
+}
