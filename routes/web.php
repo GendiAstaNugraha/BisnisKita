@@ -27,4 +27,3 @@ Route::get('/daftar', [DaftarController::class, 'index']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::get('/admin', [AdminController::class, 'index']);
-

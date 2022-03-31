@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->text('alamat');
-            $table->integer('telp');
+            $table->string('telp');
             $table->date('tgl');
             $table->string('email')->unique();
             $table->string('password');

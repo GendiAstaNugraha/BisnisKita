@@ -19,13 +19,13 @@
             <label for="exampleInputAlamat1" class="form-label">Alamat</label>
             <input type="search" class="form-control @error('alamat')
             is-invalid
-            @enderror" id="exampleInputAlamat1" name="alamat" required value="{{ old('alamat') }}">
+            @enderror" id="exampleInputAlamat1" name="alamat" value="{{ old('alamat') }}">
         </div>
         <div class="mb-3">
             <label for="exampleInputTelp1" class="form-label">No Telpon</label>
-            <input type="number" class="form-control @error('telp')
+            <input type="text" class="form-control @error('telp')
             is-invalid
-            @enderror" id="exampleInputTelp1" name="telp" required value="{{ old('telp') }}">
+            @enderror" id="exampleInputTelp1" name="telp" value="{{ old('telp') }}">
             @error('telp')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -36,7 +36,7 @@
             <label for="exampleInputTgl1" class="form-label">Tanggal Lahir</label>
             <input type="date" class="form-control @error('tgl')
             is-invalid
-            @enderror" id="exampleInputTgl1" name="tgl" required value="{{ old('tgl') }}">
+            @enderror" id="exampleInputTgl1" name="tgl" value="{{ old('tgl') }}">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
@@ -52,17 +52,17 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-            <input type="password" class="form-control @error('sandi')
+            <input type="password" class="form-control @error('password')
             is-invalid
             @enderror" id="exampleInputPassword1" name="password" required >
-            @error('sandi')
+            @error('password')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
             @enderror
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check" required value="null">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check" required value="Null">
             <label class="form-check-label" for="exampleCheck1">Periksa Saya</label>
         </div>
         <button type="submit" class="btn btn-primary" name="button">Daftar</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class DaftarController extends Controller
 {
@@ -39,13 +40,15 @@ class DaftarController extends Controller
     {
         $request->validate(
             [
-                'nama' => ['min:2','max:225'],
-                'telp' => ['numeric'],
-                'email' => ['email:dns'],
+                'nama' => ['min:2','max:225','unique:user'],
+                'telp' => ['numeric','digits_between:9,12'],
+                'email' => ['email:dns','unique:user'],
                 'password' => ['min:8,max:16'],
             ]
         );
+        $request['password']=bcrypt($request['password']);
         User::create($request->except(['_token','check','button']));
+        return redirect('/screentwo/user')->with('status', 'Profile updated!');
     }
 
     /**
