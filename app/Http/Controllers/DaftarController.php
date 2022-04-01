@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class DaftarController extends Controller
 {
@@ -48,7 +47,7 @@ class DaftarController extends Controller
         );
         $request['password']=bcrypt($request['password']);
         User::create($request->except(['_token','check','button']));
-        return redirect('/screentwo/user')->with('status', 'Profile updated!');
+        return redirect('/masuk')->with('status', 'Berhasil Daftar, Silahkan Masuk!!');
     }
 
     /**

@@ -8,8 +8,5 @@
     <li class="nav-item">
         <a class="nav-link {{ $title === 'Daftar' ? 'active' : '' }}" href="/daftar">Daftar</a>
     </li>
-    <li class="navbar-item ">
-        <a class="nav-link {{ $title === 'Admin' ? 'active' : '' }}" href="/admin">Admin <i class="fa-solid fa-person"></i></a>
-    </li>
 </ul>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MasukController extends Controller
 {
@@ -82,5 +83,28 @@ class MasukController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate(
+            [
+                'email' => ['email:dns'],
+                'password' => ['min:8,max:16'],
+            ]
+        );
+        $request->except(['_token','check','button','nama','alamat','telp','tgl']);
+
+        if (Auth::guard('user')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/user')->with('status', 'Berhasil Masuk');
+        }elseif (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin')->with('status', 'Berhasil Masuk');
+        }
+
+        return back()->with('error', 'Gagal Masuk');
     }
 }

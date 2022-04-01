@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\DaftarController;
@@ -20,10 +21,15 @@ Route::get('/', function () {
     return view('screen.home',[
         "title" => "CRM"
     ]);
-});
+})->name('/');
 Route::get('/masuk', [MasukController::class, 'index']);
 
 Route::get('/daftar', [DaftarController::class, 'index']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::post('/masuk', [MasukController::class, 'authenticate']);
+
+Route::group(['middleware' =>['auth:user,admin']], function(){
+    Route::get('/user', [UserController::class, 'index'])->middleware('auth');
+    Route::get('/admin', [UserController::class, 'index'])->middleware('auth');
+});
