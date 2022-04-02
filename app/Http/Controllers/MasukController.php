@@ -98,13 +98,23 @@ class MasukController extends Controller
         if (Auth::guard('user')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/user')->with('status', 'Berhasil Masuk');
+            return redirect()->intended('/user')->with('status', 'Selamat Datang');
         }elseif (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin')->with('status', 'Berhasil Masuk');
+            return redirect()->intended('/admin')->with('status', 'Selamat Datang');
         }
 
         return back()->with('error', 'Gagal Masuk');
+    }
+
+    public function keluar(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/home');
     }
 }

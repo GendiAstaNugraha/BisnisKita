@@ -17,7 +17,7 @@
 
 <body>
     <br>
-    @include('layouts.navbar')
+    @include('screen.navbar')
     <br><br>
     <div class="container"> @yield('isi')
     </div>
