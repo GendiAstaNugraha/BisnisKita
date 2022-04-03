@@ -40,7 +40,6 @@ class DaftarController extends Controller
         $request->validate(
             [
                 'nama' => ['min:2','max:225','unique:user'],
-                'telp' => ['numeric','digits_between:9,12'],
                 'email' => ['email:dns','unique:user'],
                 'password' => ['min:8,max:16'],
             ]

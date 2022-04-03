@@ -93,7 +93,7 @@ class MasukController extends Controller
                 'password' => ['min:8,max:16'],
             ]
         );
-        $request->except(['_token','check','button','nama','alamat','telp','tgl']);
+        $request->except(['_token','check','button']);
 
         if (Auth::guard('user')->attempt($credentials)) {
             $request->session()->regenerate();

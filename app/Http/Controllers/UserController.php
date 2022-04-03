@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::where('nama', auth()->user()->nama)->get();
+        // return User::where('nama', auth()->user()->nama)->get();
         return view('user.profil',[
             "title" => "Halaman User"
         ]);

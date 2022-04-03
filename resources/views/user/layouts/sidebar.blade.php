@@ -2,7 +2,7 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="50" height="50" class="rounded-circle me-2">
+              <img src="/img/avatar/{{ auth()->user()->avatar }}" alt="" width="50" height="50" class="rounded-circle me-2">
               {{ auth()->user()->nama }}</a>
           <ul class="dropdown-menu dropdown-menu-dark shadow">
               <li><a class="dropdown-item" href="/user/profil">Profil</a></li>

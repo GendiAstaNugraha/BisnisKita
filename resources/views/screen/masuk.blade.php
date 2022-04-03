@@ -21,7 +21,6 @@
         <input type="email" class="form-control @error('email')
             is-invalid
             @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required autofocus value="{{ old('email') }}">
-        <div id="emailHelp" class="form-text">Kami tidak akan pernah membagikan email Anda kepada orang lain.</div>
         @error('email')
         <div class="invalid-feedback">
             {{ $message }}

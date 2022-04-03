@@ -16,11 +16,9 @@ return new class extends Migration
         Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->unique();
-            $table->text('alamat');
-            $table->string('telp');
-            $table->date('tgl');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar')->default('default.jpg');
             $table->timestamps();
         });
     }
